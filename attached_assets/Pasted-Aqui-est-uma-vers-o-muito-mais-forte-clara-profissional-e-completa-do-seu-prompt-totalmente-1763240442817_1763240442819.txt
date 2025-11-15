@@ -1,0 +1,213 @@
+Aqui está **uma versão muito mais forte, clara, profissional e completa** do seu prompt — totalmente otimizada para Replit, geradores de código e IA que constroem plataformas web.
+Eu corrigi estrutura, deixei tudo modular, ordenado e preciso — sem perder nada do que você pediu.
+
+---
+
+# ✅ **PROMPT PROFISSIONAL (VERSÃO MELHORADA)**
+
+**Crie uma plataforma web completa, moderna e funcional para hospedar bots do Discord a partir de uploads em formato .zip. A plataforma deve ser compatível com o Replit e deve permitir que todos os bots rodem diretamente no próprio site.**
+
+---
+
+## **🎯 OBJETIVO DO PROJETO**
+
+Construir um sistema web capaz de **hospedar, gerenciar e manter bots do Discord ativos 24/7**, permitindo que o usuário envie um bot em `.zip` e o servidor faça todo o processo automaticamente.
+
+---
+
+# 🔧 **FUNCIONALIDADES PRINCIPAIS**
+
+## **1. Sistema de Upload**
+
+* Upload de arquivos `.zip`
+* Extração automática após o upload
+* Autodetecção do arquivo principal do bot:
+
+  * `index.js`
+  * `main.js`
+  * `bot.js`
+  * ou qualquer arquivo contendo `client.login`
+* Após extrair, rodar automaticamente:
+
+  * `npm install`
+  * Verificação de erros de dependência
+* Validar o `.zip` antes de extrair
+* Limitar tamanho para até **50MB**
+
+---
+
+## **2. Gerenciamento Completo de Bots**
+
+Cada bot deve ficar isolado em uma pasta própria, contendo:
+
+* **Iniciar bot**
+* **Parar bot**
+* **Reiniciar bot**
+* **Excluir bot**
+* **Ver logs em tempo real**
+* **Status individual**
+
+  * Rodando
+  * Parado
+  * Erro
+  * Reinicializando
+
+Internamente, cada bot deve rodar em um **processo separado**, usando:
+
+* `child_process.spawn`
+* reinício automático em caso de crash
+
+---
+
+## **3. Dashboard da Plataforma**
+
+A interface deve conter:
+
+### **Tela principal**
+
+* Cards listando todos os bots hospedados
+
+  * Nome do bot
+  * Status
+  * Data do upload
+  * Botões de:
+
+    * Start
+    * Stop
+    * Restart
+    * Delete
+    * Logs
+
+### **Área de Upload (drag & drop)**
+
+* Suporte a clique ou arrastar arquivos
+* Barra de progresso
+* Mensagens de sucesso/erro
+
+### **Terminal de Logs em tempo real**
+
+* WebSocket para streaming dos logs do bot
+* Logs devem ser atualizados sem recarregar a página
+
+### **Design**
+
+* Totalmente responsivo
+* Estilo painel / dashboard moderno
+* Dark mode
+* Ícones por status
+* UX intuitiva
+
+---
+
+# 🌐 **4. Backend do Projeto (Node.js + Express)**
+
+O backend deve incluir:
+
+* Rotas para upload, listagem e gerenciamento dos bots
+* Multer para uploads
+* AdmZip ou unzipper para extrair .zip
+* WebSocket (Socket.io) para logs em tempo real
+* Sistema que mantém registro dos bots em JSON local
+* Proteção contra:
+
+  * path traversal
+  * nomes suspeitos
+  * arquivos fora do padrão
+* Rotina Keep-Alive para reativar o bot caso caia
+
+---
+
+# 🔄 **5. Sistema de Keep-Alive (24/7)**
+
+Implementar:
+
+### **Ping interno automático**
+
+* A cada 5 minutos
+* Reset do servidor se cair
+
+### **Monitoramento de bots**
+
+* Se um bot parar inesperadamente → reiniciar
+* Registrar horário do crash
+* Registrar logs
+
+### **Compatível com Replit + UptimeRobot**
+
+* Rota pública `/uptime` retornando `{status:"online"}`
+* Assim pode ser pingado externamente
+
+---
+
+# 🔐 **6. Segurança**
+
+* Sanitização de nomes de arquivos e pastas
+* Bloqueio de uploads suspeitos
+* Limite de tamanho
+* Cada bot deve ficar isolado em sua pasta
+* Remover arquivos perigosos:
+
+  * `.exe`
+  * `.dll`
+  * `.sh`
+* Impedir acesso a caminhos externos
+
+---
+
+# 📦 **7. Estrutura Aceita no Upload**
+
+A IA deve gerar exemplos de `.zip` com:
+
+```
+bot.zip
+ └── index.js
+ └── package.json
+ └── comandos/
+ └── eventos/
+```
+
+Ou:
+
+```
+main.js
+package.json
+config.json
+```
+
+---
+
+# 📘 **8. Instruções para o Usuário**
+
+No final, explicar claramente:
+
+* Como enviar um bot `.zip`
+* Como iniciar/parar bots
+* Como ver os logs
+* Como manter tudo 24/7 no Replit
+* Como usar com UptimeRobot
+
+---
+
+# 🏁 **ENTREGÁVEIS**
+
+A IA deve gerar:
+
+1. Código completo do backend
+2. Código completo do frontend
+3. Estrutura final de pastas
+4. Scripts necessários e dependências
+5. Instruções de deploy no Replit
+6. Exemplos de uso
+
+---
+
+## ✨ **FIM DO PROMPT MELHORADO**
+
+Se quiser, posso gerar também:
+
+✅ A versão curta do prompt
+✅ A versão para Claude
+✅ A versão para chat de terminal
+✅ O projeto completo já funcionando
+
+Só dizer!
